@@ -83,8 +83,28 @@ func project_two(limit int) int {
 	return mysum
 }
 
-func project_three() int {
-	return 1
+func project_three(number int) int {
+	/* The prime factors of 13195 are 5, 7, 13 and 29.
+
+	   What is the largest prime factor of the number 600851475143 ?
+
+	   n = 600851475143
+	   i = 2
+	   while i * i < n:
+	     while n % i == 0:
+	         n = n / i
+	     i = i + 1
+	   print n
+
+	*/
+	i := 2
+	for i*i < number {
+		for number%i == 0 {
+			number = number / i
+		}
+		i++
+	}
+	return number
 }
 
 func main() {
@@ -94,6 +114,6 @@ func main() {
 	p2 := project_two(4000000)
 	fmt.Printf("project #2: %d\n", p2)
 
-	p3 := project_three()
+	p3 := project_three(600851475143)
 	fmt.Printf("project #3: %d\n", p3)
 }
