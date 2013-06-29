@@ -69,14 +69,18 @@ func project_two(limit int) int {
 
 	var number_list []int
 	var x, y int = 0, 1
-	for x < limit {
+	// greater than or equal..to not exceed the limit but include it
+	for x <= limit {
 		x, y = y, x+y
 		if x%2 == 0 {
 			number_list = append(number_list, x)
 		}
 	}
-
-	return 3
+	var mysum int
+	for i := 0; i < len(number_list); i++ {
+		mysum = mysum + number_list[i]
+	}
+	return mysum
 }
 
 func main() {
