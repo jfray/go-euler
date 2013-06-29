@@ -68,8 +68,15 @@ func project_two(limit int) int {
 	*/
 
 	var number_list []int
-	return
+	var x, y int = 0, 1
+	for x < limit {
+		x, y = y, x+y
+		if x%2 == 0 {
+			number_list = append(number_list, x)
+		}
+	}
 
+	return 3
 }
 
 func main() {
