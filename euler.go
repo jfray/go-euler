@@ -107,6 +107,10 @@ func project_three(number int) int {
 	return number
 }
 
+func project_four() int {
+	return 1
+}
+
 func main() {
 	p1 := project_one(1000)
 	fmt.Printf("project #1: %d\n", p1)
@@ -116,4 +120,8 @@ func main() {
 
 	p3 := project_three(600851475143)
 	fmt.Printf("project #3: %d\n", p3)
+
+	p4 := project_four()
+	fmt.Printf("project #4: %d\n", p4)
+
 }
