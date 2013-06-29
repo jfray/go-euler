@@ -83,10 +83,17 @@ func project_two(limit int) int {
 	return mysum
 }
 
+func project_three() int {
+	return 1
+}
+
 func main() {
 	p1 := project_one(1000)
 	fmt.Printf("project #1: %d\n", p1)
 
 	p2 := project_two(4000000)
 	fmt.Printf("project #2: %d\n", p2)
+
+	p3 := project_three()
+	fmt.Printf("project #3: %d\n", p3)
 }
