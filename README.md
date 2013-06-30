@@ -9,3 +9,5 @@ I'm doing this less for figuring out the answers to the project euler problems a
 I know that this does not necessarily result in idiomatic code, but this is mainly to get an idea of how to work with this language and its tools.
 
 As of the beginning of project 5, I'm going to start doing each project in its own branch and merge them to master
+
+As of the beginning of project 7, I'm going to be using helper functions where it makes sense, such as isprime()
