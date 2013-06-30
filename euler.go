@@ -205,6 +205,15 @@ func ProjectSix(maximum int) int {
 	return (square * square) - mysum
 }
 
+func ProjectSeven(input int) int {
+	/*
+		By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+		What is the 10 001st prime number?
+	*/
+	return 0
+}
+
 func main() {
 	p1 := ProjectOne(1000)
 	fmt.Printf("project #1: %d\n", p1)
@@ -223,4 +232,7 @@ func main() {
 
 	p6 := ProjectSix(100)
 	fmt.Printf("project #6: %d\n", p6)
+
+	p7 := ProjectSeven(10001)
+	fmt.Printf("project #7: %d\n", p7)
 }
