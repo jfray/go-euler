@@ -162,7 +162,6 @@ func ProjectFive(minimum int, maximum int) int {
 			number_list = append(number_list, x)
 		}
 	}
-	//	fmt.Println(number_list)
 
 	// since maximum and maximum -1  have to divide evenly, we can start at max and increment by their product
 	increment_by := maximum * (maximum - 1)
