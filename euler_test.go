@@ -59,3 +59,17 @@ func TestProjectFour(t *testing.T) {
 		t.Errorf("got %d expected %d", got, expected)
 	}
 }
+
+func BenchmarkProjectFive(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		ProjectFive()
+	}
+}
+
+func TestProjectFive(t *testing.T) {
+	expected := 0
+	got := ProjectFive()
+	if expected != got {
+		t.Errorf("got %d expected %d", got, expected)
+	}
+}

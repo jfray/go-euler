@@ -147,6 +147,10 @@ func ProjectFour() int {
 	return maximum
 }
 
+func ProjectFive() int {
+	return 0
+}
+
 func main() {
 	p1 := ProjectOne(1000)
 	fmt.Printf("project #1: %d\n", p1)
@@ -159,5 +163,8 @@ func main() {
 
 	p4 := ProjectFour()
 	fmt.Printf("project #4: %d\n", p4)
+
+	p5 := ProjectFive()
+	fmt.Printf("project #5: %d\n", p5)
 
 }
