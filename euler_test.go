@@ -62,13 +62,13 @@ func TestProjectFour(t *testing.T) {
 
 func BenchmarkProjectFive(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		ProjectFive()
+		ProjectFive(1, 20)
 	}
 }
 
 func TestProjectFive(t *testing.T) {
-	expected := 0
-	got := ProjectFive()
+	expected := 232792560
+	got := ProjectFive(1, 20)
 	if expected != got {
 		t.Errorf("got %d expected %d", got, expected)
 	}

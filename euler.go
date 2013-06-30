@@ -147,8 +147,27 @@ func ProjectFour() int {
 	return maximum
 }
 
-func ProjectFive() int {
-	return 0
+func ProjectFive(minimum int, maximum int) int {
+	/* Smallest multiple
+	   2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+
+	   What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+	*/
+
+	// since maximum and maximum -1  have to divide evenly, we can start at max and increment by their product
+	increment_by := maximum * (maximum - 1)
+	i := increment_by
+	for {
+		// check i against
+		if i > 1000000 {
+			break
+		}
+		//fmt.Println(i)
+		i += increment_by
+	}
+	//	maximum += 20
+
+	return maximum
 }
 
 func main() {
@@ -164,7 +183,7 @@ func main() {
 	p4 := ProjectFour()
 	fmt.Printf("project #4: %d\n", p4)
 
-	p5 := ProjectFive()
+	p5 := ProjectFive(1, 20)
 	fmt.Printf("project #5: %d\n", p5)
 
 }
