@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strconv"
 	"strings"
 )
@@ -205,13 +206,54 @@ func ProjectSix(maximum int) int {
 	return (square * square) - mysum
 }
 
-func ProjectSeven(input int) int {
+func ProjectSeven(target int) int {
 	/*
-		By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
 
-		What is the 10 001st prime number?
+			By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+			What is the 10 001st prime number?
+
+			def is_prime?(n)
+		      ((2..(Math.sqrt(n)))).each do |i|
+		        return false if n % i == 0
+		      end
+		      return true
+		    end
+
+		    def find_prime(target)
+
+		      count = 3
+		      index = 1 # start at 1 since we are skipping the number 2 (the first prime number)
+
+		      while true
+		        index += 1 if is_prime?(count)
+		        return count if index == target
+		        count += 2 # only test odd numbers
+		      end
+		    end
+
 	*/
-	return 0
+	count := 3
+	index := 1
+
+	for {
+		if isprime(count) {
+			index++
+		}
+		if index == target {
+			return count
+		}
+		count += 2
+	}
+}
+
+func isprime(n int) bool {
+	for i := 2; i <= int(math.Sqrt(float64(n))); i++ {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return true
 }
 
 func main() {
