@@ -2,9 +2,8 @@ package main
 
 import (
 	"fmt"
-
-//"strconv"
-//"strings"
+	"strconv"
+	"strings"
 )
 
 func ProjectOne(limit int) int {
@@ -109,38 +108,43 @@ func ProjectThree(number int) int {
 func ProjectFour() int {
 	/* A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 99.
 
-		Find the largest palindrome made from the product of two 3-digit numbers.
+			Find the largest palindrome made from the product of two 3-digit numbers.
 
-	    n = 0
-	    for a in xrange(999, 100, -1):
-	      for b in xrange(a, 100, -1):
-	         x = a * b
-	         if x > n:
-	           s = str(a * b)
-	           if s == s[::-1]:
-	             n = a * b
-	    print n
+	        class Integer
+	          def palindromic?
+	            digits = self.to_s.split('')
+	            return digits == digits.reverse
+	          end
+	        end
+
+	        max = 0
+	        (100..999).each do |a|
+	          (a..999).each do |b|
+	            product = a * b
+	              if product > max and product.palindromic?
+	                max = product
+	              end
+	          end
+	        end
+	        puts max
 	*/
 
-	n := 0
-	for a := 999; a < 1000; a-- {
-		fmt.Println(a)
-		//for b := a; b < 100; b-- {
-		x := a * b
-		if x > n {
-			s := a * b
-			t := strings.Split(strconv.Itoa(s), "")
-			u1 := fmt.Sprintf("%s%s%s", t[0], t[1], t[2])
-			u2 := fmt.Sprintf("%s%s%s", t[len(t)], t[len(t)-1], t[len(t)-2])
-			fmt.Println("hi there: %s", u1)
-			fmt.Println("hi there: %s", u2)
-			if u1 == u2 {
-				n = a * b
+	maximum := 0
+	// counting down instead of up was nearly 9x faster according to benchmark
+	for a := 999; a > 100; a-- {
+		for b := a; b > 100; b-- {
+			product := a * b
+			if product > maximum {
+				s := strings.Split(strconv.Itoa(product), "")
+				front := fmt.Sprintf("%s%s%s", s[0], s[1], s[2])
+				back := fmt.Sprintf("%s%s%s", s[len(s)-1], s[len(s)-2], s[len(s)-3])
+				if front == back {
+					maximum = product
+				}
 			}
 		}
-		//}
 	}
-	return n
+	return maximum
 }
 
 func main() {
