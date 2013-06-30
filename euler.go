@@ -154,20 +154,36 @@ func ProjectFive(minimum int, maximum int) int {
 	   What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 	*/
 
+	// get list of factors, since you can remove them from the list of numbers you need to check
+	var number_list []int
+
+	for x := minimum; x <= maximum; x++ {
+		if maximum%x != 0 && x != maximum-1 && x != minimum {
+			number_list = append(number_list, x)
+		}
+	}
+	//	fmt.Println(number_list)
+
 	// since maximum and maximum -1  have to divide evenly, we can start at max and increment by their product
 	increment_by := maximum * (maximum - 1)
-	i := increment_by
-	for {
-		// check i against
-		if i > 1000000 {
-			break
+
+	for i := increment_by; ; {
+		// check the resulting number against number_list to see if all are divisible
+		// keep track of how many numbers out of total list have passed..there's gotta be a better way
+		passes := 0
+		for j := 0; j < len(number_list); j++ {
+			if i%number_list[j] == 0 {
+				passes++
+				if passes == len(number_list) {
+					return i
+				}
+			} else {
+				break
+			}
 		}
-		//fmt.Println(i)
 		i += increment_by
 	}
-	//	maximum += 20
-
-	return maximum
+	return 0
 }
 
 func main() {
