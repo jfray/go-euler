@@ -13,6 +13,7 @@ func ProjectFive(minimum int, maximum int) int {
 	var factors []int
 
 	for x := minimum; x <= maximum; x++ {
+		// we're going to take the product of maximum and maximum-1 later, so don't include it
 		if maximum%x != 0 && x != maximum-1 && x != minimum {
 			factors = append(factors, x)
 		}

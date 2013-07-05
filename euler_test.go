@@ -48,13 +48,13 @@ func TestProjectThree(t *testing.T) {
 
 func BenchmarkProjectFour(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		ProjectFour()
+		ProjectFour(3)
 	}
 }
 
 func TestProjectFour(t *testing.T) {
 	expected := 906609
-	got := ProjectFour()
+	got := ProjectFour(3)
 	if expected != got {
 		t.Errorf("got %d expected %d", got, expected)
 	}
